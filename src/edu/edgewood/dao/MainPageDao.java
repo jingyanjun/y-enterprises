@@ -147,13 +147,13 @@ public class MainPageDao extends AbstractJdbcDao{
 /**
  * Created by Yanjun: update(Posting)
  */
-public boolean update (Posting posting) throws Exception{
+public boolean update(Posting posting) throws Exception{
 	
-	String sql = "update movie set title = ?, "
+	String sql = "update posting set title = ?, "
 			+ "short_description = ?, "
-			+ "long_description = ? "
+			+ "long_description = ? ,"
+			+ "last_modified_by = ? ,"
 			+ "last_modified = ? "
-			+ "last_modified_by = ? "
 			+ "where id = ? ";
 	
 	Connection conn = null;
@@ -164,9 +164,10 @@ public boolean update (Posting posting) throws Exception{
 		stmt = conn.prepareStatement(sql);
 		stmt.setString(1, posting.getTitle());
 		stmt.setString(2, posting.getShortDescription());
-		stmt.setString(3, posting.getLongDescription());		
-		stmt.setTimestamp(4, Timestamp.valueOf(posting.getLastModified()));		
-		stmt.setString(5, posting.getLastModifiedBy().getUserId());
+		stmt.setString(3, posting.getLongDescription());
+		stmt.setString(4, posting.getLastModifiedBy().getUserId());
+		stmt.setTimestamp(5, Timestamp.valueOf(posting.getLastModified()));			
+		stmt.setString(6, posting.getId());
 		
 		stmt.execute();
 		return true;
