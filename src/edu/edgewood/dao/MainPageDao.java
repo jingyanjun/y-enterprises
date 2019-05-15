@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import edu.edgewood.model.Posting;
 import edu.edgewood.model.User;
 
@@ -66,7 +67,7 @@ public class MainPageDao extends AbstractJdbcDao{
 	}
 	
 	public User getUserByLogin(String userName, String password) throws Exception{
-		String sql = "select * from user where id= ? and password = ?";	 //edit by yanjun: "change user_name" to "id"
+		String sql = "select * from user where id = ? and password = ?";	 //user_name  -> id edit by Yanjun 
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -76,13 +77,12 @@ public class MainPageDao extends AbstractJdbcDao{
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, userName);
 			stmt.setString(2, password);
-			rs = stmt.executeQuery();
-			
+			rs = stmt.executeQuery();			
 			
 			if(rs.next()) {
 				return createUser(rs);
 			}
-			return null;
+			else return null;                                 
 			
 			
 			
@@ -93,12 +93,11 @@ public class MainPageDao extends AbstractJdbcDao{
 	
 	private Posting createPosting(ResultSet rs) throws Exception{
 		String id = rs.getString("id");
-		LocalDate createdDate = rs.getDate("created_date").toLocalDate();  
+		LocalDate createdDate = rs.getDate("created_date").toLocalDate();
 		User createdBy = this.getUserById(rs.getString("created_by"));
 		String title = rs.getString("title");
 		String shortDescription = rs.getString("short_description");
 		String longDescription = rs.getString("long_description");
-		
 		LocalDateTime lastModified = null;
 		if(rs.getTimestamp("last_modified") != null) {
 			lastModified = rs.getTimestamp("last_modified").toLocalDateTime();
@@ -118,10 +117,13 @@ public class MainPageDao extends AbstractJdbcDao{
 		posting.setShortDescription(shortDescription);
 		posting.setLongDescription(longDescription);
 		
-			posting.setLastModified(lastModified);	
+			posting.setLastModified(lastModified);
+		
 		
 			posting.setLastModifiedBy(lastModifiedBy);
-			
+		
+		
+		
 		return posting;
 	}
 	
@@ -221,7 +223,8 @@ try {
 	conn = getConnection();
 	stmt = conn.prepareStatement(sql);
 	stmt.setString(1, posting.getId());
-	stmt.setDate(2, Date.valueOf(posting.getCreatedDate()));
+	//new posting: created time = lastModify time
+	stmt.setTimestamp(2, Timestamp.valueOf(posting.getLastModified()));
 	String userId = posting.getCreatedBy().getUserId();
 	stmt.setString(3, userId);
 	stmt.setString(4, posting.getTitle());
@@ -258,5 +261,6 @@ public boolean delete (String id) throws Exception{
 }
 
 }
+
 
 
