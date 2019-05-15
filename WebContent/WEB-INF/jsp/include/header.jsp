@@ -32,7 +32,8 @@
 				MainPageDao dao = new MainPageDao();
 				User loginUser = dao.getUserById(userId);
 				String userName = loginUser.getFirstName() + " " + loginUser.getLastName();		
-		%>		
+		%>	
+		    <span><%=userName%></span>	
 			<a id='logoutLnkId'>Logout</a>
             
         <% }else{%>	
