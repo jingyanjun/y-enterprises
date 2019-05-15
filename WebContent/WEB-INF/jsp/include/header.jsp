@@ -26,22 +26,22 @@
 
 	<div id='header'>
 	<h1>UACS-417-ADVENCED WEB DEVELOPMENT-SPRING-2019</h1>
-		<div id='menu'>
-		<%
-			if (cookieExisit){
-				MainPageDao dao = new MainPageDao();
-				User loginUser = dao.getUserById(userId);
-				String userName = loginUser.getFirstName() + " " + loginUser.getLastName();		
-		%>	
-		    <span><%=userName%></span>	
-			<a id='logoutLnkId'>Logout</a>
-            
-        <% }else{%>	
-        
-        	<a id='loginLnkId' href=''>Login</a>				
-			<a id='RegisterLnkId' href=''>Register</a>
-		<%} %>
-				
-		</div>
+	</div>	
+	
+	<div id='menu'>
+	<%
+		if (cookieExisit){
+			MainPageDao dao = new MainPageDao();
+			User loginUser = dao.getUserById(userId);
+			String userName = loginUser.getFirstName() + " " + loginUser.getLastName();		
+	%>	
+	    <span><%=userName%></span>	
+		<a class = 'menu' id='logoutLnkId' href=''>Logout</a>
+           
+       <% }else{%>	       
+       	<a class = 'menu' id='loginLnkId' href=''>Login</a>				
+		<a class = 'menu' id='RegisterLnkId' href=''>Register</a>
+	<%} %>
 			
 	</div>
+	
