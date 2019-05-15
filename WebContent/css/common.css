@@ -1,0 +1,83 @@
+/* Yanjun Jing
+ */
+
+#header{
+    background-color: maroon;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+}
+
+#menu{
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align:right;
+    padding: 15px;
+}
+
+a.menu{
+    border-left: 2px solid white;
+    padding: 0 15px 0 15px;
+    color: white;
+    text-decoration: none;
+}
+
+a.newButton {
+	background-color: maroon;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+
+a.Button {
+	background-color: #ff9b9b;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 4px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+
+a.confirmation {
+	background-color: #ff9b9b;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 4px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+
+#content{
+    padding: 50px;
+    color: #130000;
+}
+
+
+#errMessage{
+	color:red;
+}
+
+.error{
+	color:red;
+}
+
+#footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    bottom: 0;
+    position: fixed;
+    width:100%;
+}
