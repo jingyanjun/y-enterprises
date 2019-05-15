@@ -27,7 +27,7 @@ public class MainPageManager {
 	
 	public User getUserByLogin(String userName, String password) {
 		try{
-			return dao.getUserByLogin(userName, password);
+			return dao.getUserByLogin(userName,password);
 	
 		} catch (Exception e) {
 			e.printStackTrace();
