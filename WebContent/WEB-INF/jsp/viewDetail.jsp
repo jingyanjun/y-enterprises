@@ -29,7 +29,7 @@
 			
 			<div id='content'>
 			<form>			
-				<p>${requestScope.posting.createdDate}  </p>
+				<p><b>${requestScope.posting.createdDate} </b> </p>
 				<p>${requestScope.posting.title} </p>
 				<p>${requestScope.posting.shortDescription} </p>
 				<p>${requestScope.posting.longDescription} </p>
