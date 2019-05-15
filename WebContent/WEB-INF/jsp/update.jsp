@@ -35,6 +35,7 @@
 		<title>Update</title>
 		<link rel="stylesheet" href="css/common.css"/>
 		<Script src='js/ext/jquery-3.3.1.min.js'></Script>
+		<Script src='js/common.js'></Script>
 		<Script src='js/update.js'></Script>
 	</head>
 	<body>	
@@ -49,11 +50,13 @@
 			%>	
 				<div id='header'>
 				<h1>UACS-417-ADVENCED WEB DEVELOPMENT-SPRING-2019</h1>
+				</div>
+				
 				<div id='menu'>
 				<span><%=userName%></span>
-	            <a id='logoutLnkId'>Logout</a>  
+	            <a class = 'menu' id='logoutLnkId'>Logout</a>  
 				</div>		
-				</div>				
+							
 			
 				<div id = 'content'>
 				<h2>Update Posting: </h2>
@@ -72,7 +75,7 @@
 				 	<p/>
 					<input type='button' id='updateBtnId' value='Update'/>
 					<input type='button' id='cancelBtnId' value='Cancel'/>
-					<br>
+					<br/>
 					<span class='error'>* required</span>		
 				</form>			
 				</div>
@@ -82,13 +85,14 @@
 			{%>	
 				<div id='header'>
 				<h1>UACS-417-ADVENCED WEB DEVELOPMENT-SPRING-2019</h1>
+				</div>
 	            <div id='menu'>
-	        	<a id='loginLnkId' href=''>Login</a>						
-				<a id='RegisterLnkId' href=''>Register</a>					
+	        	<a class = 'menu' id='loginLnkId' href=''>Login</a>						
+				<a class = 'menu' id='RegisterLnkId' href=''>Register</a>					
 				</div>
-				</div>
+				
 				<div id="content">
-				<p class="error">Log in first to edit posting.</p>
+				<p class="error">Log in first to edit postings.</p>
 				</div>
 				
 				<%} %>
